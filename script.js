@@ -1,7 +1,6 @@
 import { getRandomNamesAndFlags } from './gameSetup.js'
 
 const flagButton = document.getElementById('flagButton');
-const coatOfArmsButton = document.getElementById('coatOfArmsButton');
 
 flagButton.addEventListener('click', openFlagsGame);
 
@@ -15,7 +14,7 @@ function openFlagsGame() {
     window.location.href = 'flagsGame.html';
 }
 
-const url = `https://restcountries.com/v3.1/all?fields=name,flags,capital,coatOfArms`;
+const url = `https://restcountries.com/v3.1/all?fields=name,flags`;
 
 const imageContainers = document.getElementsByClassName('bannerImageContainer');
 
@@ -36,19 +35,16 @@ async function fetchCountries() {
 
 function setupCountries(data) {
     flagsCollection = data;
-    let flag, coatOfArms;
-    while (!(flag && coatOfArms)) {
+    let flag;
+    while (!flag) {
         const random = Math.floor(Math.random() * data.length);
         flag = data[random].flags.svg;
-        coatOfArms = data[random].coatOfArms.svg;
     }
-
-    setUpView(flag, coatOfArms, data);
+    setUpView(flag, data);
 }
 
-function setUpView(flag, coatOfArms, countryData) {
+function setUpView(flag, countryData) {
     flagButton.querySelector('img').src = flag;
-    coatOfArmsButton.querySelector('img').src = coatOfArms;
     Array.from(imageContainers).forEach(element => {
         for (let i = 0; i < 16; i++) {
             const randomIndex = Math.floor(Math.random() * countryData.length);
