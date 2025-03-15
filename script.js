@@ -9,7 +9,7 @@ capitalButton.addEventListener('click', () => opengameSetup('Capitals'));
 coatOfArmsButton.addEventListener('click', () => opengameSetup('Coats of Arms'));
 
 function openFlagsGame() {
-    let flagsGameCollection = getRandomNamesAndFlags(flagsCollection, 5);
+    let flagsGameCollection = getRandomNamesAndFlags(5);
     localStorage.setItem('currentCountry', "");
     localStorage.setItem('flagsGameCollection', JSON.stringify(flagsGameCollection));
     window.location.href = 'flagsGame.html';
@@ -29,6 +29,7 @@ async function fetchCountries(){
     try{
         const response = await fetch(url);
         const data = await response.json();
+        localStorage.setItem('fetchedData', JSON.stringify(data));
         setupCountries(data);
     }catch(error){
         console.error('Error fetching countries:', error);

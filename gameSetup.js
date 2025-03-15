@@ -1,15 +1,17 @@
-export function getRandomNamesAndFlags(flagsCollection, flagsAmount){
+export function getRandomNamesAndFlags(flagsAmount){
+    let contryData = JSON.parse(localStorage.getItem('fetchedData'));
+    console.log(contryData);
     let indexes = [];
     let namesAndFlags = [];
     for(let i =0; i < flagsAmount; i++){
         let random;
         do {
-            random = Math.floor(Math.random() * flagsCollection.length);
+            random = Math.floor(Math.random() * contryData.length);
         }
         while (indexes.includes(random));
 
         indexes.push(random);
-        namesAndFlags.push([flagsCollection[random].name.common,flagsCollection[random].flags.svg]);
+        namesAndFlags.push([contryData[random].name.common,contryData[random].flags.svg]);
     }
 
     return namesAndFlags;
