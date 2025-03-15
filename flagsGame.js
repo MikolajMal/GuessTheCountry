@@ -9,13 +9,23 @@ let countryName;
 let score = 0;
 
 let playAgainButton = document.getElementById('playAgainButton');
-playAgainButton.addEventListener('click', () => getRandomNamesAndFlags(10));
+playAgainButton.addEventListener('click', playAgain);
+
+function playAgain(){
+    updateScore(-score);
+    hideEndGamePanel();
+    gridContainer.replaceChildren();
+    let data = getRandomNamesAndFlags(3);
+    localStorage.setItem('flagsGameCollection', JSON.stringify(data));
+    createButtons(data);
+    showNextCountry();
+    
+}
 
 let namesAndFlags;
 
 function createButtons(data) {
     namesAndFlags = data;
-    console.log(data);
     data.forEach(createButton);
 }
 
@@ -47,12 +57,10 @@ let wrongButtonClass = 'gridButtonWrongAnimation';
 let wrongButtons = [];
 function checkFlagButton(buttonCountryName, button) {
     let result;
-    console.log('buttonCountryName ' + buttonCountryName);
-    console.log('countryName ' + countryName);
     if (buttonCountryName === countryName && !button.classList.contains(matchedButtonClass)) {
         button.classList.add(matchedButtonClass);
         showNextCountry();
-        score += 10;
+        updateScore(10);
         wrongButtons.forEach(element => {
             element.classList.remove(wrongButtonClass);
         });
@@ -62,11 +70,16 @@ function checkFlagButton(buttonCountryName, button) {
     else {
         button.classList.add(wrongButtonClass);
         wrongButtons.push(button);
-        score--;
+        updateScore(-1);
         result = false;
     }
-    scoreElements.forEach(e => e.innerHTML = score);
+    
     return result;
+}
+
+function updateScore(amount){
+    score += amount;
+    scoreElements.forEach(e => e.innerHTML = score);
 }
 
 function showNextCountry(country = "") {
@@ -86,15 +99,27 @@ function showNextCountry(country = "") {
     }
     else {
         countryNameElement.innerHTML = 'CONGRATULATIONS';
-        endGamePanel.classList.add('flexVisibleElement');
-        endGamePanel.classList.remove('hiddenElement');
+        showEndGamePanel();
         flagsGame.classList.add('blur');
         localStorage.setItem('currentCountry', "");
     }
 }
 
-endGamePanel.classList.remove('flexVisibleElement');
-endGamePanel.classList.add('hiddenElement');
+function showEndGamePanel(){
+    endGamePanel.classList.add('flexVisibleElement');
+    endGamePanel.classList.remove('hiddenElement');
+
+    flagsGame.classList.add('blur');
+}
+
+function hideEndGamePanel(){
+    endGamePanel.classList.remove('flexVisibleElement');
+    endGamePanel.classList.add('hiddenElement');
+    
+    flagsGame.classList.remove('blur');
+}
+
+hideEndGamePanel();
 
 let data = JSON.parse(localStorage.getItem('flagsGameCollection'));
 createButtons(data);

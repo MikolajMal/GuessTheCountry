@@ -1,6 +1,5 @@
 export function getRandomNamesAndFlags(flagsAmount){
     let contryData = JSON.parse(localStorage.getItem('fetchedData'));
-    console.log(contryData);
     let indexes = [];
     let namesAndFlags = [];
     for(let i =0; i < flagsAmount; i++){
