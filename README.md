@@ -5,9 +5,9 @@
 
 ## Screenshots
 <div style="display:flex;">
-  <img src="./screenshots/MainMenuScreenshot.png" alt="Main Menu Screenshot" height="200">
-  <img src="./screenshots/FlagsGameScreenshot.png" alt="Flags Game Screenshot" height="200">
-  <img src="./screenshots/GameEndedScreenshot.png" alt="Game Ended Screenshot" height="200">
+  <img src="./screenshots/MainMenuScreenshot.png" alt="Main Menu Screenshot" height="120">
+  <img src="./screenshots/FlagsGameScreenshot.png" alt="Flags Game Screenshot" height="120">
+  <img src="./screenshots/GameEndedScreenshot.png" alt="Game Ended Screenshot" height="120">
 </div>
 
 ## Features
