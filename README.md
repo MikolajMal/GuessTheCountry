@@ -3,6 +3,9 @@
 ## Project Overview
 "Guess The Country" is an interactive game designed to test and enhance users' geographical knowledge. The application challenges players to identify country flags. This project was created as part of my programming portfolio to showcase my skills in front-end development.
 
+## Screenshots
+
+
 ## Features
 - 🌟 **Flag Guessing Game**: A game mode where users select the correct flag matching a given country name.
 - 🌟 **Scoring System**: Real-time score updates for correct and incorrect answers.
