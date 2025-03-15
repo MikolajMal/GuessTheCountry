@@ -32,8 +32,7 @@ button{
     box-shadow: 0px 0px 20px black;
 }
 
-.flagbuttonIconDiv,
-.coatOfArmsButtonIconDiv{
+.iconContainer{
     height: 60%;
     margin: 0;
     display: flex;

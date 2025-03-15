@@ -1,12 +1,15 @@
 import { getRandomNamesAndFlags } from './gameSetup.js'
 
-let flagButton = document.getElementById('flagButton');
-let coatOfArmsButton = document.getElementById('coatOfArmsButton');
+const flagButton = document.getElementById('flagButton');
+const coatOfArmsButton = document.getElementById('coatOfArmsButton');
 
 flagButton.addEventListener('click', openFlagsGame);
 
+let amountOfCountriesToGuess = 25;
+
 function openFlagsGame() {
-    let flagsGameCollection = getRandomNamesAndFlags(5);
+    localStorage.setItem('amountOfCountriesToGuess', amountOfCountriesToGuess);
+    let flagsGameCollection = getRandomNamesAndFlags(amountOfCountriesToGuess);
     localStorage.setItem('currentCountry', "");
     localStorage.setItem('flagsGameCollection', JSON.stringify(flagsGameCollection));
     window.location.href = 'flagsGame.html';
@@ -18,18 +21,20 @@ const imageContainers = document.getElementsByClassName('bannerImageContainer');
 
 let flagsCollection;
 
-async function fetchCountries(){
-    try{
+async function fetchCountries() {
+    try {
         const response = await fetch(url);
         const data = await response.json();
-        localStorage.setItem('fetchedData', JSON.stringify(data));
-        setupCountries(data);
-    }catch(error){
+        if(data){
+            localStorage.setItem('fetchedData', JSON.stringify(data));
+            setupCountries(data);
+        }
+    } catch (error) {
         console.error('Error fetching countries:', error);
     }
 }
 
-function setupCountries(data){
+function setupCountries(data) {
     flagsCollection = data;
     let flag, coatOfArms;
     while (!(flag && coatOfArms)) {
@@ -38,12 +43,16 @@ function setupCountries(data){
         coatOfArms = data[random].coatOfArms.svg;
     }
 
+    setUpView(flag, coatOfArms, data);
+}
+
+function setUpView(flag, coatOfArms, countryData) {
     flagButton.querySelector('img').src = flag;
     coatOfArmsButton.querySelector('img').src = coatOfArms;
     Array.from(imageContainers).forEach(element => {
         for (let i = 0; i < 16; i++) {
-            const randomIndex = Math.floor(Math.random() * data.length);
-            element.innerHTML += `<img height=100% src="${data[randomIndex].flags.svg}">`;
+            const randomIndex = Math.floor(Math.random() * countryData.length);
+            element.innerHTML += `<img height=100% src="${countryData[randomIndex].flags.svg}">`;
         }
     });
 }

@@ -1,5 +1,8 @@
 import { getRandomNamesAndFlags } from './gameSetup.js'
 
+const POINTS_PER_CORRECT_ANSWER = 10;
+const POINTS_PER_WRONG_ANSWER = -1;
+
 let flagsGame = document.getElementById('flagsGame');
 let gridContainer = document.getElementById('gridContainer');
 let countryNameElement = document.getElementById('countryName');
@@ -15,11 +18,11 @@ function playAgain(){
     updateScore(-score);
     hideEndGamePanel();
     gridContainer.replaceChildren();
-    let data = getRandomNamesAndFlags(3);
+    let amount = localStorage.getItem('amountOfCountriesToGuess');
+    let data = getRandomNamesAndFlags(amount);
     localStorage.setItem('flagsGameCollection', JSON.stringify(data));
     createButtons(data);
     showNextCountry();
-    
 }
 
 let namesAndFlags;
@@ -30,8 +33,7 @@ function createButtons(data) {
 }
 
 function createButton(nameAndFlag) {
-    let name = nameAndFlag[0];
-    let flag = nameAndFlag[1];
+    let [name, flag] = nameAndFlag;
 
     let btn = document.createElement('button');
     btn.classList.add('gridButton');
@@ -60,7 +62,7 @@ function checkFlagButton(buttonCountryName, button) {
     if (buttonCountryName === countryName && !button.classList.contains(matchedButtonClass)) {
         button.classList.add(matchedButtonClass);
         showNextCountry();
-        updateScore(10);
+        updateScore(POINTS_PER_CORRECT_ANSWER);
         wrongButtons.forEach(element => {
             element.classList.remove(wrongButtonClass);
         });
@@ -70,7 +72,7 @@ function checkFlagButton(buttonCountryName, button) {
     else {
         button.classList.add(wrongButtonClass);
         wrongButtons.push(button);
-        updateScore(-1);
+        updateScore(POINTS_PER_WRONG_ANSWER);
         result = false;
     }
     
