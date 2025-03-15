@@ -1,0 +1,81 @@
+html{
+    height: 100%;
+} 
+
+body{
+    height: 100%;
+    font-family: "Kulim Park";
+    margin: 0;
+}
+
+button{
+    font-size: 16px;
+    font-family: "Kulim Park";
+}
+
+header{
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+header h1{
+    font-size: 60px;
+}
+
+.bannerImageContainer{
+    overflow-x: hidden;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.headerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.optionsText{
+    margin-bottom: 50px;
+}
+
+section{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+section h2{
+    margin: 50px;
+}
+
+.mainButtonsContainer{
+    display: flex;
+    width: 60%;
+    justify-content: space-evenly;
+}
+
+.mainMenuButtonContainer{
+    display: flex;
+    height: 30%;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .mainButtonsContainer{
+        width: 100%;
+    }
+}
+
+@media (max-height: 700px) {
+    .imageContainer{
+        height: 5%;
+    }
+    section{
+        height: 60%;
+    }
+}

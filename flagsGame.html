@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Country</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="flagsGame.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="flagsGame">
+        <div id="flagsGameContainer">
+            <header class="genericHeader">
+                <button class="mainMenuButtonStyle mainMenuButton">Main Menu</button>
+                <p class="score">0</p>
+            </header>
+            <section>
+                <div id="flagsGameLayout">
+                    <div id="countryNameDiv">
+                        <p id="countryName" class="mainParagraph"></p>
+                    </div>
+                    <div id="gridContainer"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div id="endGamePanel">
+        <p class="mainParagraph">Congratulations</p>
+        <p class="secondaryParagraph">Your score</p>
+        <p class="score">0</p>
+        <div class="buttonContainer">
+            <button class="smallButton" id="playAgainButton">Play again</button>
+            <button class="smallButton mainMenuButton">Main menu</button>
+        </div>
+    </div>
+    <script src="flagsGame.js" type="module"></script>
+    <script src="mainMenu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+button{
+    width: 160px;
+    height: 160px;
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 4px 4px 6px lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainButton:hover{
+    box-shadow: 2px 2px 20px gray;
+}
+
+
+.mainMenuButtonStyle{
+    width: 200px;
+    height: 60px;
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 4px 4px 6px lightgray;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.mainMenuButtonStyle:hover{
+    box-shadow: 0px 0px 20px black;
+}
+
+.flagbuttonIconDiv,
+.capitalParagraphDiv,
+.coatOfArmsButtonIconDiv{
+    height: 60%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.capitalParagraphDiv p{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.flagbuttonIcon{
+    width: 80px;
+}
+
+.coatOfArmsButtonIcon{
+    height: 80px;
+}
