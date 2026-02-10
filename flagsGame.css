@@ -1,15 +1,15 @@
-#flagsGame{
+#flagsGame {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;   
+    align-items: center;
 }
 
-.blur{
+.blur {
     filter: blur(2px);
 }
 
-#flagsGameContainer{
+#flagsGameContainer {
     width: 800px;
 }
 
@@ -54,16 +54,20 @@
 }
 
 @keyframes shake {
+
     0%,
     100% {
         transform: translateX(0);
     }
+
     25% {
         transform: translateX(-2px);
     }
+
     50% {
         transform: translateX(2px);
     }
+
     75% {
         transform: translateX(-2px);
     }
@@ -94,23 +98,23 @@
     margin: 30px;
 }
 
-.mainParagraph{
+.mainParagraph {
     font-size: 28px;
 }
 
-.secondaryParagraph{
+.secondaryParagraph {
     font-size: 20px;
 }
 
-.hiddenElement{
+.hiddenElement {
     display: none;
 }
 
-.flexVisibleElement{
+.flexVisibleElement {
     display: flex;
 }
 
-#endGamePanel{
+#endGamePanel {
     font-weight: bold;
     position: fixed;
     top: 50%;
@@ -126,20 +130,60 @@
     align-items: center;
 }
 
-.buttonContainer{
+.buttonContainer {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
     margin: 28px;
 }
 
-.smallButton{
+.smallButton {
     height: 60px;
     width: 32%;
     font-weight: bold;
     box-shadow: 1px 1px 8px gray;
 }
 
-.smallButton:hover{
+.smallButton:hover {
     box-shadow: 1px 1px 16px gray;
+}
+
+@media screen and (max-width: 800px) {
+    #flagsGameContainer {
+        width: 360px;
+    }
+
+    #flagsGameLayout {
+        margin-top: 50px;
+    }
+
+    .genericHeader {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #gridContainer {
+        display: grid;
+        height: 400px;
+        width: 360px;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
+
+    .gridButton {
+        height: 70px;
+        width: 65px;
+    }
+
+    .gridButton img {
+        width: 55px;
+        max-height: 60px;
+    }
+
+    #countryNameDiv {
+        margin: 20px;
+    }
 }
