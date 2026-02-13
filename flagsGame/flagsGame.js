@@ -1,4 +1,4 @@
-import { getRandomNamesAndFlags } from './gameSetup.js'
+import { getRandomNamesAndFlags } from '../gameSetup.js'
 
 const POINTS_PER_CORRECT_ANSWER = 10;
 const POINTS_PER_WRONG_ANSWER = -1;

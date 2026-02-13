@@ -11,7 +11,7 @@ function openFlagsGame() {
     let flagsGameCollection = getRandomNamesAndFlags(amountOfCountriesToGuess);
     localStorage.setItem('currentCountry', "");
     localStorage.setItem('flagsGameCollection', JSON.stringify(flagsGameCollection));
-    window.location.href = 'flagsGame.html';
+    window.location.href = 'flagsGame/flagsGame.html';
 }
 
 const url = `https://restcountries.com/v3.1/all?fields=name,flags`;

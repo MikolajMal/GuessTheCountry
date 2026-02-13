@@ -3,5 +3,5 @@ let mainMenuButtonsArray = Array.from(mainMenuButtons);
 mainMenuButtonsArray.forEach(b => b.addEventListener('click', mainMenu));
 
 function mainMenu(){
-    window.location.href = 'index.html';
+    window.location.href = '/index.html';
 }
