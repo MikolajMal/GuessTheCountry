@@ -1,8 +1,15 @@
-import { getRandomNamesAndFlags } from './gameSetup.js'
+import { getRandomNamesAndFlags } from '/gameSetup.js'
+import { setUpFlagBanner } from '/components/flagBanner.js'
 
 const flagButton = document.getElementById('flagButton');
 
-flagButton.addEventListener('click', openFlagsGame);
+flagButton.addEventListener('click', openDifficultyPanel);
+
+function openDifficultyPanel(){
+    window.location.href = 'difficultyPanel/difficultyPanel.html';
+}
+
+let amountOfFlagsOnBanner = 16;
 
 let amountOfCountriesToGuess = 25;
 
@@ -18,39 +25,17 @@ const url = `https://restcountries.com/v3.1/all?fields=name,flags`;
 
 const imageContainers = document.getElementsByClassName('bannerImageContainer');
 
-let flagsCollection;
-
 async function fetchCountries() {
     try {
         const response = await fetch(url);
         const data = await response.json();
         if(data){
             localStorage.setItem('fetchedData', JSON.stringify(data));
-            setupCountries(data);
+            setUpFlagBanner(data, imageContainers, amountOfFlagsOnBanner);
         }
     } catch (error) {
         console.error('Error fetching countries:', error);
     }
-}
-
-function setupCountries(data) {
-    flagsCollection = data;
-    let flag;
-    while (!flag) {
-        const random = Math.floor(Math.random() * data.length);
-        flag = data[random].flags.svg;
-    }
-    setUpView(flag, data);
-}
-
-function setUpView(flag, countryData) {
-    flagButton.querySelector('img').src = flag;
-    Array.from(imageContainers).forEach(element => {
-        for (let i = 0; i < 16; i++) {
-            const randomIndex = Math.floor(Math.random() * countryData.length);
-            element.innerHTML += `<img height=100% src="${countryData[randomIndex].flags.svg}">`;
-        }
-    });
 }
 
 fetchCountries();
