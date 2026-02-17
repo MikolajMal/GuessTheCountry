@@ -1,0 +1,38 @@
+h2{
+    font-size: 40px;
+}
+
+.subTitle {
+    margin-top: -50px;
+}
+
+section {
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.difficultyButtonsContainer {
+    display: flex;
+    flex-direction: column;
+    height: 16em;
+    justify-content: space-between;
+}
+
+.difficultyButton {
+    height: 4em;
+}
+
+.difficultyButton:hover {
+  box-shadow: 2px 2px 20px gray;
+}
+
+.mainMenuButton{
+    margin-top: 100px;
+}
+
+@media (max-width: 900px) {
+    section {
+        height: 90%;
+    }
+}
