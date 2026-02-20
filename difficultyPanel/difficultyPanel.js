@@ -1,5 +1,5 @@
-import { getRandomNamesAndFlags } from '/gameSetup.js'
-import { setUpFlagBanner } from '/components/flagBanner.js'
+import { getRandomNamesAndFlags } from '../gameSetup.js'
+import { setUpFlagBanner } from '../components/flagBanner.js'
 
 const params = new URLSearchParams(window.location.search);
 
@@ -50,5 +50,5 @@ function openFlagsGame(amountOfCountriesToGuess) {
     let flagsGameCollection = getRandomNamesAndFlags(amountOfCountriesToGuess);
     localStorage.setItem('currentCountry', "");
     localStorage.setItem('flagsGameCollection', JSON.stringify(flagsGameCollection));
-    window.location.href = '/flagsGame/flagsGame.html';
+    window.location.href = '../flagsGame/flagsGame.html';
 }

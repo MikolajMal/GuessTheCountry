@@ -1,9 +1,6 @@
-h2{
+h2 {
     font-size: 40px;
-}
-
-.subTitle {
-    margin-top: -50px;
+    text-align: center;
 }
 
 section {
@@ -24,15 +21,21 @@ section {
 }
 
 .difficultyButton:hover {
-  box-shadow: 2px 2px 20px gray;
+    box-shadow: 2px 2px 20px gray;
 }
 
-.mainMenuButton{
-    margin-top: 100px;
+.mainMenuButton {
+    margin-top: 50px;
 }
 
 @media (max-width: 900px) {
     section {
         height: 90%;
+    }
+}
+
+@media (min-height: 850px) {
+    .subTitle {
+        margin-top: -50px;
     }
 }

@@ -1,4 +1,4 @@
-import { setUpFlagBanner } from '/components/flagBanner.js'
+import { setUpFlagBanner } from './components/flagBanner.js'
 
 const flagButton = document.getElementById('flagButton');
 
